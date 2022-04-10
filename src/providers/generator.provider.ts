@@ -11,26 +11,6 @@ export class GeneratorProvider {
     return GeneratorProvider.uuid() + '.' + ext;
   }
 
-  static getS3PublicUrl(key: string): Optional<string> {
-    if (!key) {
-      return;
-    }
-
-    return `https://s3.${process.env.AWS_S3_BUCKET_NAME_REGION}.amazonaws.com/${process.env.AWS_S3_BUCKET_NAME}/${key}`;
-  }
-
-  static getS3Key(publicUrl: string): Optional<string> {
-    if (!publicUrl) {
-      return;
-    }
-
-    const exec = new RegExp(
-      `(?<=https://s3.${process.env.AWS_S3_BUCKET_NAME_REGION}.amazonaws.com/${process.env.AWS_S3_BUCKET_NAME}/).*`,
-    ).exec(publicUrl);
-
-    return exec?.[0];
-  }
-
   static generateVerificationCode(): string {
     return Math.floor(1000 + Math.random() * 9000).toString();
   }
