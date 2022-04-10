@@ -16,7 +16,7 @@
     "migration:create": "yarn run typeorm migration:create -d src/database/migrations -n",
     "seed:config": "ts-node node_modules/typeorm-seeding/dist/cli.js config",
     "seed:run": "ts-node node_modules/typeorm-seeding/dist/cli.js seed",
-    "new": "hygen new",
+    "new": "hygen new module",
     "migration:revert": "yarn run typeorm migration:revert",
     "schema:drop": "yarn run typeorm schema:drop",
     "watch:dev": "ts-node-dev src/main.ts",
