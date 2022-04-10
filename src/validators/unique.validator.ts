@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { getRepository } from "typeorm"
 import type {
   ValidationArguments,
   ValidationOptions,
@@ -7,11 +6,11 @@ import type {
 } from 'class-validator';
 import { registerDecorator, ValidatorConstraint } from 'class-validator';
 import type { EntitySchema, FindConditions, ObjectType } from 'typeorm';
+import { getRepository } from 'typeorm';
 
 @Injectable()
 @ValidatorConstraint({ name: 'unique', async: true })
 export class UniqueValidator implements ValidatorConstraintInterface {
-
   public async validate<E>(
     value: string,
     args: IUniqueValidationArguments<E>,
